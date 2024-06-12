@@ -1,0 +1,135 @@
+html {
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+   }
+body{
+   background: url(images/background.png) 700px 218px no-repeat;
+   background-size: 903px 735px;
+}
+header{
+    margin-top: 20px;
+    margin-left: 23px;
+    display: flex;
+ }
+.logo{
+   width: 174px;
+   height: 44px;
+ }
+ .searchBar{
+    margin-left: 20px;
+ }
+ .searchBar input{
+   font-size: 16px;
+   line-height: 18.75px;
+   text-align: left;
+   width: 582px;
+   height: 40px;
+   border-radius: 6px 6px 6px 6px;
+   border: 1px 1px 1px 1px solid #E2E2E2;
+   opacity: 0px;
+   box-shadow: 2px 2px 2px 0px #0000001A inset;
+   background: linear-gradient(#FEFEFE, #F6F6F6);
+ }
+ .searchBar input::placeholder{
+    background: url(images/Search.png) no-repeat;
+    background-position: 10px;
+ }
+ main{
+   display: flex;
+   flex-direction: column;
+ }
+
+
+.filter { 
+   width: 759px;
+   height: 50px;
+   margin-top: 33px;
+   margin-left: 44px;
+   box-shadow: 0px 3px 0px 0px #0000000a inset ;
+   
+}
+ 
+.filter button {
+   font-size: 16px;
+   line-height: 18.75px;
+   text-align: center;
+   color: #53565A;
+   width: 175px;
+   height: 50px;
+   background-color: transparent;
+   border-color: transparent;
+   opacity: 50%;
+
+
+}
+ 
+.active{
+   border-top: 3px solid #2F80ED !important ;
+   opacity: 1 !important;
+
+
+ } 
+
+ .newTask{
+   width: 759px;
+   margin-top: 18px;
+   margin-left: 47px;
+   gap: 0px;
+   opacity: 0px;
+   font-size: 12px;
+   line-height: 15.38px;
+   text-align: left;
+   color: gray;
+ }
+ .newTask textarea{
+   width: 759px;
+   height: 90px;
+   opacity: 0px;
+   border: 1px solid #DDDBDA;
+   background: #FFFFFF;
+ }
+ .newTask button{
+   width: 191px;
+   height: 36px;
+   background: #2F80ED;
+   border-color: transparent;
+   font-size: 14px;
+   line-height: 16px;
+   letter-spacing: 0.75px;
+   text-align: center;
+   color:#FFFFFF;
+   margin-top: 11px;
+   float: right;
+
+ }
+ .taskList{
+   margin-top: 23px;
+   display: flex;
+   flex-direction: column-reverse;
+
+ }
+ .task{
+   width: 763px;
+   height: 109px;
+   border-radius: 4px 0px 0px 0px;
+   box-shadow: 0px 6px 20px 0px #0000001A;
+   margin-bottom: 17px;
+   margin-left: 40px;
+   background-color: #ffffff;
+
+ }
+ .markDone{
+   border-color: transparent;
+   background-color: transparent;
+   font-size: 16px;
+   line-height: 18.75px;
+   text-align: left;
+   margin-top: 16px;
+   margin-left: 23px;
+   
+ }
+ .task:hover{
+   background-color: red;
+
+ }
+ 
