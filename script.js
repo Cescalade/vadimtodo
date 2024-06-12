@@ -20,8 +20,7 @@ addTaskButton.addEventListener("click", () => {
 	taskItem.classList.add("task");
 	taskItem.innerHTML = `
 	<button class="markDone">${task}</button>
-    <button class="markImportant"></button>
-    <button class="deleteTask"></button>
+    <button class="imprtnt"></button>
 `;
 
 	taskList.append(taskItem);
