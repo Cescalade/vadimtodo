@@ -1,10 +1,11 @@
 html {
     box-sizing: border-box;
-    font-family: "Roboto", sans-serif;
    }
 body{
    background: url(images/background.png) 700px 218px no-repeat;
    background-size: 903px 735px;
+   font-family: "Roboto", sans-serif;
+   font-weight: 400;
 }
 header{
     margin-top: 20px;
@@ -20,6 +21,7 @@ header{
  }
  .searchBar input{
    font-size: 16px;
+   font-weight: 400;
    line-height: 18.75px;
    text-align: left;
    width: 582px;
@@ -31,8 +33,10 @@ header{
    background: linear-gradient(#FEFEFE, #F6F6F6);
  }
  .searchBar input::placeholder{
-    background: url(images/Search.png) no-repeat;
+    background: url(images/Search.svg) no-repeat;
     background-position: 10px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
  }
  main{
    display: flex;
@@ -59,13 +63,20 @@ header{
    background-color: transparent;
    border-color: transparent;
    opacity: 50%;
+   font-family: "Roboto", sans-serif;
+   font-weight: 400;
 
 
 }
+.filter button:hover{
+  cursor: pointer;
+  font-weight: 700;
+}
  
 .active{
-   border-top: 3px solid #2F80ED !important ;
-   opacity: 1 !important;
+  border-top: 3px solid #2F80ED !important ;
+  opacity: 1 !important;
+  font-weight: 700 !important;
 
 
  } 
@@ -94,12 +105,15 @@ header{
    background: #2F80ED;
    border-color: transparent;
    font-size: 14px;
+   font-family: "Roboto", sans-serif;
+    font-weight: 700;
    line-height: 16px;
    letter-spacing: 0.75px;
    text-align: center;
    color:#FFFFFF;
    margin-top: 11px;
    float: right;
+   cursor: pointer;
 
  }
  .taskList{
@@ -108,17 +122,18 @@ header{
    flex-direction: column-reverse;
 
  }
- .task{
+.task{
    width: 763px;
    height: 109px;
-   border-radius: 4px 0px 0px 0px;
+   border-radius: 4px;
    box-shadow: 0px 6px 20px 0px #0000001A;
    margin-bottom: 17px;
    margin-left: 40px;
    background-color: #ffffff;
-
+   position: relative;
  }
- .markDone{
+
+.markDone{
    border-color: transparent;
    background-color: transparent;
    font-size: 16px;
@@ -128,8 +143,47 @@ header{
    margin-left: 23px;
    
  }
- .task:hover{
-   background-color: red;
 
+.markImportant{
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  border: none;
+  width: 183px;
+  height: 36px;
+  top: 11px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.75px;
+  text-align: center;
+  color: #FFFFFF;
+  background: #27AE60;
+  box-shadow: 0px 3px 4px 0px #0000001f;
+  position: absolute;
+  right: 73px;
+  top: 11px;
+  opacity: 0;
+  transition: opacity .3s;
+  cursor: pointer;
  }
- 
+
+.delete{
+  background-image: url(images/Delete.svg);
+  width: 40px;
+  height: 40px;
+  top: 11px;
+  border-radius: 50%;
+  border: none;
+  position: absolute;
+  right: 12px; 
+  top: 11px; 
+  opacity: 0;
+  transition: opacity .3s;
+  cursor: pointer;
+ }
+
+ .task:hover button{
+  opacity: 1;
+  transition: opacity .3s;
+ }

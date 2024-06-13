@@ -20,7 +20,8 @@ addTaskButton.addEventListener("click", () => {
 	taskItem.classList.add("task");
 	taskItem.innerHTML = `
 	<button class="markDone">${task}</button>
-    <button class="imprtnt"></button>
+    <button class="markImportant">MARK IMPORTANT</button>
+    <button class="delete"></button>
 `;
 
 	taskList.append(taskItem);
@@ -34,6 +35,7 @@ taskList.addEventListener("click", (event) => {
         //     taskItem.style.backgroundColor = "";
         // } else {
         //     taskItem.style.backgroundColor = "#f2f2f2";
-        taskItem.style.textDecoration = "line-through";
+        markDone.style.textDecorationLine = "line-through";
+
     }
 });
