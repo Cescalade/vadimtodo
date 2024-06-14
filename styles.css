@@ -73,7 +73,7 @@ header{
   font-weight: 700;
 }
  
-.active{
+.active-f{
   border-top: 3px solid #2F80ED !important ;
   opacity: 1 !important;
   font-weight: 700 !important;
@@ -134,6 +134,8 @@ header{
  }
 
 .markDone{
+   font-family: 'Roboto', sans-serif;
+   font-weight: 400;
    border-color: transparent;
    background-color: transparent;
    font-size: 16px;
@@ -186,4 +188,13 @@ header{
  .task:hover button{
   opacity: 1;
   transition: opacity .3s;
+ }
+ .done button:first-of-type{
+  text-decoration: line-through;
+ }
+
+ .marked button:first-of-type{
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  
  }
