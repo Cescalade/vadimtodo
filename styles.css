@@ -198,3 +198,6 @@ header{
   font-weight: 700;
   
  }
+ .marked button:nth-of-type(2){
+  background-color: gray;
+ }
