@@ -189,6 +189,9 @@ header{
   opacity: 1;
   transition: opacity .3s;
  }
+ .task:hover{
+  box-shadow: 0px 6px 20px 0px #1a0aff5e;
+ }
  .done button:first-of-type{
   text-decoration: line-through;
  }
@@ -200,4 +203,7 @@ header{
  }
  .marked button:nth-of-type(2){
   background-color: gray;
+ }
+ .hiden{
+  display: none;
  }
