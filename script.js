@@ -7,11 +7,11 @@ const searchTask = document.getElementById('search');
 taskList.innerHTML = localStorage.getItem('todo');
 
 searchTask.onchange = function(){
-    let request = this.value.trim();
+    let request = this.value.trim().toLowerCase();
     tasks = taskList.querySelectorAll(".task button:first-of-type");
     if (request != ''){
         tasks.forEach((task) => {
-            if (task.textContent.search(request) == -1){
+            if (task.textContent.toLowerCase().search(request) == -1){
                 task.closest(".task").classList.add("hiden");
             }
             else{
