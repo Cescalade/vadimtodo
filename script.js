@@ -1,21 +1,30 @@
-
-// function setActiveFilter(e){
-//     const elements = document.getElementsByClassName("active-f");
-//     Array.from(elements).forEach((el)=>{
-//         el.classList.remove("active-f");
-
-//     })
-//     e.classList.add("active-f");
-
-// }
-
 const taskInput = document.getElementById("task");
 const addTaskButton = document.getElementById("addTask");
 const taskList = document.getElementById("taskList");
 const filter = document.querySelector('.filter')
+const newTask = document.querySelector('.newTask');
+const searchTask = document.getElementById('search');
 taskList.innerHTML = localStorage.getItem('todo');
 
-
+searchTask.onchange = function(){
+    let request = this.value.trim();
+    tasks = taskList.querySelectorAll(".task button:first-of-type");
+    if (request != ''){
+        tasks.forEach((task) => {
+            if (task.textContent.search(request) == -1){
+                task.closest(".task").classList.add("hiden");
+            }
+            else{
+                task.closest(".task").classList.remove("hiden")
+            }
+        })
+    }
+    else {
+        tasks.forEach((task) => {
+            task.closest(".task").classList.remove("hiden")
+        });
+    }
+}
 
 addTaskButton.addEventListener("click", () => {
     const task = taskInput.value;
@@ -37,6 +46,8 @@ addTaskButton.addEventListener("click", () => {
     
 });
 
+
+
 filter.addEventListener("click", (e) => {
     const elements = document.querySelectorAll("button");
     if (!e.target.matches('button')) return;
@@ -46,10 +57,11 @@ filter.addEventListener("click", (e) => {
     })
 
     e.target.classList.add("active-f");
-
+    
     tasks = taskList.querySelectorAll(".task");
     tasks.forEach((task)=>{
         if (e.target.classList.contains("active-b")){
+            
             if (task.classList.contains("done")){
                 task.classList.add("hiden");
             }
@@ -70,6 +82,7 @@ filter.addEventListener("click", (e) => {
         }
         
     });
+    (!e.target.classList.contains('all-b')) ? newTask.classList.add("hiden") : newTask.classList.remove("hiden");
     
 });
 
