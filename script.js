@@ -4,14 +4,16 @@ const taskList = document.getElementById("taskList");
 const filter = document.querySelector('.filter')
 const newTask = document.querySelector('.newTask');
 const searchTask = document.getElementById('search');
+const template = document.querySelector("#template");
 taskList.innerHTML = localStorage.getItem('todo');
 
-searchTask.onchange = function(){
+searchTask.oninput = function(){
     let request = this.value.trim().toLowerCase();
     tasks = taskList.querySelectorAll(".task button:first-of-type");
-    if (request != ''){
+    if (request !== ''){
+        newTask.classList.add("hiden");
         tasks.forEach((task) => {
-            if (task.textContent.toLowerCase().search(request) == -1){
+            if (task.textContent.toLowerCase().search(request) === -1){
                 task.closest(".task").classList.add("hiden");
             }
             else{
@@ -20,6 +22,7 @@ searchTask.onchange = function(){
         })
     }
     else {
+        newTask.classList.remove("hiden");
         tasks.forEach((task) => {
             task.closest(".task").classList.remove("hiden")
         });
@@ -32,13 +35,9 @@ addTaskButton.addEventListener("click", () => {
         alert("Don't add task if task is empty")
 		return;
 	}
-	const taskItem = document.createElement("div");
-	taskItem.classList.add("task","active");
-	taskItem.innerHTML = `
-	<button class="markDone">${task}</button>
-    <button class="markImportant">MARK IMPORTANT</button>
-    <button class="delete"></button>
-    `;
+    const taskItem = template.content.cloneNode(true);
+    var textOfTask = taskItem.querySelector(".markDone");
+    textOfTask.textContent = task;
     
     taskList.append(taskItem);
 	taskInput.value = "";
@@ -98,16 +97,18 @@ function updateList(){
 taskList.addEventListener("click", (event) => {
     const taskItem = event.target.parentElement;
 
-    if (event.target.classList.contains("markDone")) {
-        if (taskItem.classList.contains('done')){
-            taskItem.classList.remove('done');
-            taskItem.classList.add('active');
+    if (event.target.matches("div")){
+        if (event.target.classList.contains("taskList")) return;
+        if (event.target.classList.contains('done')){
+            event.target.classList.remove('done');
+            event.target.classList.add('active');
         }
         else {
-            taskItem.classList.remove('active');
-            taskItem.classList.add('done');
+            event.target.classList.remove('active');
+            event.target.classList.add('done');
         }
     }
+
     if (event.target.classList.contains("delete")) taskItem.remove();
     
     if (event.target.classList.contains("markImportant")) {

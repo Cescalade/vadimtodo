@@ -13,9 +13,7 @@
       <div class="logo">
         <img src="images/logo.svg" alt="">
       </div>
-      <div class="searchBar">
-        <input type="text" id="search" placeholder="Search task for to do">
-      </div>
+        <input class="searchBar" type="text" id="search" placeholder="Search task for to do">
     </header>
     <main>
       <div class="filter">
@@ -29,6 +27,13 @@
         <button id="addTask">ADD</button>
       </div>
       <div class="taskList" id="taskList"></div>
+      <template id="template">
+        <div class="task active">
+          <p class="markDone"></p>
+          <button class="markImportant">MARK IMPORTANT</button>
+          <button class="delete"></button>
+        </div>
+      </template>
     </main>
     <script src="script.js"></script> 
   </body>

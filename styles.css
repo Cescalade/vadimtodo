@@ -2,14 +2,15 @@ html {
     box-sizing: border-box;
    }
 body{
-   background: url(images/background.png) 700px 218px no-repeat;
-   background-size: 903px 735px;
+   background: url(images/background.svg) right top 220px no-repeat;
+   background-size: 60%, contain;
    font-family: "Roboto", sans-serif;
    font-weight: 400;
 }
 header{
     margin-top: 20px;
     margin-left: 23px;
+    max-width: 823px;
     display: flex;
  }
 .logo{
@@ -17,22 +18,19 @@ header{
    height: 44px;
  }
  .searchBar{
-    margin-left: 20px;
- }
- .searchBar input{
+   margin-left: 20px;
+   width: 100%;
    font-size: 16px;
    font-weight: 400;
    line-height: 18.75px;
    text-align: left;
-   width: 541px;
+   max-width: 100%;
    height: 40px;
    border-radius: 6px;
    border: 1px solid #E2E2E2;
-   box-shadow: 2px 2px 2px 0px #0000001A inset;
-   background: linear-gradient(#FEFEFE, #F6F6F6);
+   box-shadow: 2px 2px 2px 0 #0000001A inset;
    padding-left: 39px;
-   background: url(images/Search.svg) no-repeat;
-   background-position: 15px;
+   background: linear-gradient(rgba(247, 247, 255, 0.5), rgba(245, 245, 208, 0.5)), url("images/Search.svg") left 15px top 15px no-repeat;
  }
  .searchBar input::placeholder{
     font-family: "Roboto", sans-serif;
@@ -42,14 +40,14 @@ header{
  main{
    display: flex;
    flex-direction: column;
+   max-width: 800px;
+   margin-left: 45px;
  }
 
 
 .filter { 
-   width: 759px;
    height: 50px;
    margin-top: 33px;
-   margin-left: 44px;
    box-shadow: 0px 3px 0px 0px #0000000a inset ;
    
 }
@@ -59,7 +57,8 @@ header{
    line-height: 18.75px;
    text-align: center;
    color: #53565A;
-   width: 175px;
+   width: 25%;
+   min-width: 60px;
    height: 50px;
    background-color: transparent;
    border-color: transparent;
@@ -76,6 +75,8 @@ header{
  
 .active-f{
   border-top: 3px solid #2F80ED !important ;
+  border-left: 0;
+  border-right: 0;
   opacity: 1 !important;
   font-weight: 700 !important;
 
@@ -83,9 +84,7 @@ header{
  } 
 
  .newTask{
-   width: 759px;
    margin-top: 18px;
-   margin-left: 47px;
    gap: 0px;
    opacity: 0px;
    font-size: 12px;
@@ -94,20 +93,22 @@ header{
    color: gray;
  }
  .newTask textarea{
-   width: 739px;
-   height: 80px;
+   width: 100%;
+   min-height: 80px;
    padding: 10px;
    border: 1px solid #DDDBDA;
    background: #FFFFFF;
+   box-sizing: border-box;
+   font-family: inherit;
  }
  .newTask button{
-   width: 191px;
-   height: 36px;
+   min-width: 191px;
+   min-height: 36px;
    background: #2F80ED;
    border-color: transparent;
    font-size: 14px;
    font-family: "Roboto", sans-serif;
-    font-weight: 700;
+   font-weight: 700;
    line-height: 16px;
    letter-spacing: 0.75px;
    text-align: center;
@@ -124,26 +125,25 @@ header{
 
  }
 .task{
-   width: 763px;
-   height: 109px;
+   width: 100%;
+   min-height: 109px;
    border-radius: 4px;
    box-shadow: 0px 6px 20px 0px #0000001A;
    margin-bottom: 17px;
-   margin-left: 40px;
    background-color: #ffffff;
    position: relative;
+   box-sizing: border-box;
+   padding: 15px;
  }
 
 .markDone{
    font-family: 'Roboto', sans-serif;
    font-weight: 400;
-   border-color: transparent;
-   background-color: transparent;
    font-size: 16px;
    line-height: 18.75px;
    text-align: left;
-   margin-top: 16px;
-   margin-left: 23px;
+   width: 100%;
+   min-height: fit-content;
    
    
  }
@@ -152,7 +152,7 @@ header{
   font-family: "Roboto", sans-serif;
   font-weight: 500;
   border: none;
-  width: 183px;
+  width: 25%;
   height: 36px;
   top: 11px;
   border-radius: 100px;
@@ -194,16 +194,17 @@ header{
  .task:hover{
   box-shadow: 0px 6px 20px 0px #1a0aff5e;
  }
- .done button:first-of-type{
+ .done p{
   text-decoration: line-through;
  }
 
- .marked button:first-of-type{
+ .marked p{
   font-family: "Roboto", sans-serif;
   font-weight: 700;
-  
+  padding-left: 25px;
+  background: no-repeat url("images/star_border.svg");
  }
- .marked button:nth-of-type(2){
+ .marked button:first-of-type{
   background-color: gray;
  }
  .hiden{
