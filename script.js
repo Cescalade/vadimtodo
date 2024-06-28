@@ -63,41 +63,41 @@ function filterClick(event) {
     tasks.forEach((task) => {
       if (event.target.classList.contains("active-b")) {
         if (task.classList.contains("done")) {
-          task.classList.add("hiden");
+          task.hidden = true;
         } else {
-          task.classList.remove("hiden");
+          task.hidden = false;
         }
       } else if (event.target.classList.contains("done-b")) {
         if (task.classList.contains("active")) {
-          task.classList.add("hiden");
+          task.hidden = true;
         } else {
-          task.classList.remove("hiden");
+          task.hidden = false;
         }
       } else {
-        task.classList.remove("hiden");
+        task.hidden = false;
       }
     });
   
-    (!event.target.classList.contains('all-b'))? newTask.classList.add("hiden") : newTask.classList.remove("hiden");
+    (!event.target.classList.contains('all-b'))? newTask.hidden = true : newTask.hidden = false;
 }
 function searchInput(){
     let request = this.value.trim().toLowerCase();
     tasks = taskList.querySelectorAll("p");
     if (request !== ''){
-        newTask.classList.add("hiden");
+        newTask.hidden = true;
         tasks.forEach((task) => {
             if (task.textContent.toLowerCase().search(request) === -1){
-                task.closest(".task").classList.add("hiden");
+                task.closest(".task").hidden = true;
             }
             else{
-                task.closest(".task").classList.remove("hiden")
+                task.closest(".task").hidden = false;
             }
         })
     }
     else {
-        newTask.classList.remove("hiden");
+        newTask.hidden = false;
         tasks.forEach((task) => {
-            task.closest(".task").classList.remove("hiden")
+            task.closest(".task").hidden = false;
         });
     }
 }
