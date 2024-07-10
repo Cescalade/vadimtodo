@@ -60,14 +60,14 @@ function addTask(taskInput, taskList, template) {
     return;
   }
 
-  const newTask = {
+  const newElemTask = {
     text: taskText,
     isImportant: false,
     isDone: false
   };
 
   const tasks = getTasks();
-  tasks.push(newTask);
+  tasks.push(newElemTask);
   saveTasks(tasks);
   taskInput.value = "";
   updateList();
@@ -148,6 +148,13 @@ function updateList() {
     
     taskList.appendChild(taskItem);
   });
+}
+
+searchInput.onfocus = function() {
+  newTask.hidden = true;
+}
+searchInput.onblur = function() {
+  newTask.hidden = false;
 }
 
 searchTask.oninput = searchInput;

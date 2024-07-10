@@ -30,7 +30,7 @@ header{
    border: 1px solid #E2E2E2;
    box-shadow: 2px 2px 2px 0 #0000001A inset;
    padding-left: 39px;
-   background: url("images/Search.svg") left 15px top 15px no-repeat, linear-gradient(rgba(254, 254, 254, 1), rgba(246, 246, 246, 1));
+   background: url("images/search.svg") left 15px top 15px no-repeat, linear-gradient(rgba(254, 254, 254, 1), rgba(246, 246, 246, 1));
  }
  .searchBar input::placeholder{
     font-family: "Roboto", sans-serif;
@@ -38,13 +38,22 @@ header{
     padding-left: 20px;
     opacity: .3;
    }
+
  main{
    display: flex;
    flex-direction: column;
    max-width: 800px;
    margin-left: 45px;
  }
-
+ 
+ @media (max-width: 480px){
+  main {
+    margin-left: 0;
+  }
+  .task button{
+    opacity: 1;
+  }
+ }
 
 .filter { 
    height: 50px;
@@ -145,6 +154,8 @@ header{
    text-align: left;
    width: 100%;
    min-height: fit-content;
+   white-space: pre-line;
+
    
    
  }
@@ -179,7 +190,7 @@ header{
  }
 
 .delete{
-  background-image: url(images/Delete.svg);
+  background-image: url(images/delete.svg);
   width: 40px;
   height: 40px;
   top: 11px;
