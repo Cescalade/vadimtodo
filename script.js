@@ -25,8 +25,8 @@ function taskListClick(event) {
   const tasks = getTasks();
   const taskIndex = Array.from(taskList.children).indexOf(taskItem);
   const task = tasks[taskIndex];
-
-  if (event.target.matches("div")) {
+  const activeFilter = document.querySelector(".active-f");
+  if ((event.target.matches("div")) || (event.target.matches("p")) ) {
     if (taskItem.classList.contains('done')) {
       task.isDone = false;
     } else {
@@ -51,6 +51,7 @@ function taskListClick(event) {
 
   saveTasks(tasks);
   updateList();
+  applyFilter();
 }
 
 function addTask(taskInput, taskList, template) {
@@ -74,42 +75,47 @@ function addTask(taskInput, taskList, template) {
 }
 
 function filterClick(event) {
-  const elements = document.querySelectorAll("button");
   if (!event.target.matches('button')) return;
 
+  const elements = document.querySelectorAll("button");
   Array.from(elements).forEach((el) => {
-    el.classList.remove("active-f");
+      el.classList.remove("active-f");
   });
 
   event.target.classList.add("active-f");
 
+  applyFilter();
+}
+
+function applyFilter() {
+  const activeFilter = document.querySelector('.filter .active-f');
   const tasks = taskList.querySelectorAll(".task");
+
   tasks.forEach((task) => {
-    if (event.target.classList.contains("active-b")) {
+    if (activeFilter.classList.contains("active-b")) {
       if (task.classList.contains("done")) {
         task.hidden = true;
       } else {
         task.hidden = false;
       }
-    } else if (event.target.classList.contains("done-b")) {
+    } else if (activeFilter.classList.contains("done-b")) {
       if (task.classList.contains("active")) {
-          task.hidden = true;
+        task.hidden = true;
       } else {
-          task.hidden = false;
+        task.hidden = false;
       }
     } else {
       task.hidden = false;
     }
   });
 
-  (!event.target.classList.contains('all-b')) ? newTask.classList.add("hiden") : newTask.hidden = false;
+  (!activeFilter.classList.contains('all-b')) ? newTask.hidden = false : newTask.hidden = false;
 }
 
 function searchInput() {
   let request = this.value.trim().toLowerCase();
   const tasks = taskList.querySelectorAll(".task p");
   if (request !== '') {
-    newTask.hidden = true;
     tasks.forEach((task) => {
       if (task.textContent.toLowerCase().search(request) === -1) {
         task.closest(".task").hidden = true;
@@ -118,7 +124,6 @@ function searchInput() {
       }
     });
   } else {
-    newTask.hidden = false;
     tasks.forEach((task) => {
       task.closest(".task").hidden = false;
     });
@@ -127,7 +132,6 @@ function searchInput() {
 
 function updateList() {
   taskList.innerHTML = '';
-  
   const tasks = getTasks();
   tasks.forEach(task => {
     const taskItem = template.content.cloneNode(true);
@@ -145,19 +149,20 @@ function updateList() {
       taskElement.classList.add('marked');
       taskItem.querySelector(".markImportant").textContent = 'NOT IMPORTANT';
     }
-    
+
     taskList.appendChild(taskItem);
+
   });
 }
 
-searchInput.onfocus = function() {
+searchTask.onfocus = function() {
   newTask.hidden = true;
 }
-searchInput.onblur = function() {
+searchTask.onblur = function() {
   newTask.hidden = false;
 }
 
-searchTask.oninput = searchInput;
+searchTask.addEventListener("input", searchInput);
 addTaskButton.addEventListener("click", () => addTask(taskInput, taskList, template));
 taskInput.addEventListener("keydown", (event) => {
   if (event.key === "Enter" && !event.shiftKey) {
@@ -166,4 +171,4 @@ taskInput.addEventListener("keydown", (event) => {
   }
 });
 filter.addEventListener("click", filterClick);
-taskList.addEventListener("click", taskListClick);
+taskList.addEventListener("click", taskListClick, filterClick);
