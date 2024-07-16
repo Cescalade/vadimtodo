@@ -72,6 +72,7 @@ function addTask(taskInput, taskList, template) {
   saveTasks(tasks);
   taskInput.value = "";
   updateList();
+  applyFilter();
 }
 
 function filterClick(event) {
@@ -83,7 +84,11 @@ function filterClick(event) {
   });
 
   event.target.classList.add("active-f");
-
+  if (event.target.classList.contains("done-b")){
+    newTask.hidden = true;
+  } else {
+    newTask.hidden = false; 
+  }
   applyFilter();
 }
 
@@ -109,7 +114,6 @@ function applyFilter() {
     }
   });
 
-  (!activeFilter.classList.contains('all-b')) ? newTask.hidden = false : newTask.hidden = false;
 }
 
 function searchInput() {
