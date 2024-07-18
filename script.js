@@ -17,7 +17,7 @@ function saveTasks(tasks) {
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
-function taskListClick(event) {
+function onClickTaskList(event) {
   const taskItem = event.target.closest('.task');
 
   if (!taskItem) return;
@@ -75,7 +75,7 @@ function addTask(taskInput, taskList, template) {
   applyFilter();
 }
 
-function filterClick(event) {
+function onClickFilter(event) {
   if (!event.target.matches('button')) return;
 
   const elements = document.querySelectorAll("button");
@@ -116,7 +116,7 @@ function applyFilter() {
 
 }
 
-function searchInput() {
+function onInputSearch() {
   let request = this.value.trim().toLowerCase();
   const tasks = taskList.querySelectorAll(".task p");
   if (request !== '') {
@@ -159,14 +159,9 @@ function updateList() {
   });
 }
 
-searchTask.onfocus = function() {
-  newTask.hidden = true;
-}
-searchTask.onblur = function() {
-  newTask.hidden = false;
-}
-
-searchTask.addEventListener("input", searchInput);
+searchTask.addEventListener("focus", () => newTask.hidden = true);
+searchTask.addEventListener("blur", () => newTask.hidden = false);
+searchTask.addEventListener("input", onInputSearch);
 addTaskButton.addEventListener("click", () => addTask(taskInput, taskList, template));
 taskInput.addEventListener("keydown", (event) => {
   if (event.key === "Enter" && !event.shiftKey) {
@@ -174,5 +169,5 @@ taskInput.addEventListener("keydown", (event) => {
     addTask(taskInput, taskList, template);
   }
 });
-filter.addEventListener("click", filterClick);
-taskList.addEventListener("click", taskListClick, filterClick);
+filter.addEventListener("click", onClickFilter);
+taskList.addEventListener("click", onClickTaskList, onClickFilter);
