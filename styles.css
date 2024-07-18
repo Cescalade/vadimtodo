@@ -71,7 +71,8 @@ header{
     background-size: 20px;
     background-position: center, center;
     font-size: 0;
-    width: 10%;
+    width: 40px;
+    height: 40px;
     right: 55px;
   }
   button.delete{
