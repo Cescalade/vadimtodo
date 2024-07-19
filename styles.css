@@ -1,6 +1,6 @@
 html {
     box-sizing: border-box;
-   }
+}
 body{
    background: url(images/background.svg) right top 220px no-repeat;
    background-size: 60%, contain;
@@ -100,9 +100,8 @@ header{
    opacity: 50%;
    font-family: "Roboto", sans-serif;
    font-weight: 400;
-
-
 }
+
 .filter button:hover{
   cursor: pointer;
   font-weight: 700;
@@ -114,14 +113,10 @@ header{
   border-right: 0;
   opacity: 1 !important;
   font-weight: 700 !important;
-
-
  } 
 
  .newTask{
    margin-top: 18px;
-   gap: 0px;
-   opacity: 0px;
    font-size: 12px;
    line-height: 15.38px;
    text-align: left;
@@ -151,13 +146,12 @@ header{
    margin-top: 11px;
    float: right;
    cursor: pointer;
-
  }
+
  .taskList{
    margin-top: 23px;
    display: flex;
    flex-direction: column-reverse;
-
  }
 .task{
    max-width: 100%;
@@ -181,9 +175,6 @@ header{
    min-height: fit-content;
    white-space: pre-line;
    word-break: break-all;
-
-   
-   
  }
 
 .markImportant{
@@ -192,10 +183,8 @@ header{
   border: none;
   width: 25%;
   height: 36px;
-  top: 11px;
   border-radius: 100px;
   font-size: 14px;
-  font-weight: 500;
   line-height: 16px;
   letter-spacing: 0.75px;
   text-align: center;
@@ -210,9 +199,7 @@ header{
   cursor: pointer;
  }
  .markImportant:hover{
-
   box-shadow: 0px 4px 7px 0px #00000044;
-
  }
 
 .delete{
