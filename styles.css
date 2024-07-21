@@ -84,6 +84,29 @@ header{
     background-position: center;
   }
  }
+ @media (prefers-color-scheme: dark) {
+  body {
+      background-color: rgba(51, 60, 77, 1);
+  }
+  .filter button {
+    mix-blend-mode: difference;
+    color: rgba(171, 200, 255, 1) !important;
+  }
+  .newTask{
+    color: rgba(171, 200, 255, 1) !important;
+  }
+  .newTask button {
+    
+    background: rgb(74, 92, 126) !important;
+    color: rgba(171, 200, 255, 1) !important;
+  }
+  .markImportant {
+    background: url(images/star_border.svg) no-repeat center;
+    filter: invert(1) hue-rotate(180deg);
+    background-color: rgb(132, 163, 221) !important;
+    color: rgb(40, 48, 63) !important;
+  }
+}
 
 .filter { 
    height: 50px;
